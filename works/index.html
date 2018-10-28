@@ -36,11 +36,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <header class="w3-container w3-green w3-center" style="padding:64px 16px 48px 16px">
   <h1 class="w3-margin w3-jumbo">things that I've worked on</h1>
 </header>
-<!-- ---------------------- SCHOOL ---------------------------->  
-<div class="w3-container w3-gray">
-  <h1 class="w3-margin w3-xxlarge">school</h1>
+
+<div class="w3-bar w3-xxlarge w3-gray">
+  <button class="w3-bar-item w3-button" onclick="openTab('school')">school</button>
+  <button class="w3-bar-item w3-button" onclick="openTab('personal')">personal</button>
+  <button class="w3-bar-item w3-button" onclick="openTab('other')">other</button>
 </div>
 
+<!-- ---------------------- SCHOOL ---------------------------->  
+<div id="school" class="pcat">
 <div class="w3-row-padding w3-padding-32 w3-container">
   <div style="padding:0px 64px">
     <div class="w3-twothird">
@@ -78,13 +82,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <i class="fa fa-youtube-play w3-text-gray" style="font-size:192px"></i>
     </div>
   </div>
-</div>  
-  
-<!-- ----------------------- PERSONAL ---------------------------->    
-<div class="w3-container w3-gray">
-  <h1 class="w3-margin w3-xxlarge">personal</h1>
+</div>
 </div>
   
+<!-- ----------------------- PERSONAL ---------------------------->    
+<div id="personal" class="pcat">  
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div style="padding:0px 64px">
     <div class="w3-twothird">
@@ -113,13 +115,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </div>
   </div>
 </div>
+</div>
 
 <!-- ----------------------- OTHER ---------------------------->  
-<div class="w3-container w3-gray">
-  <h1 class="w3-margin w3-xxlarge">other</h1>
-</div>
-  
 
+<div id="other" class="pcat">
 <!-- Second Grid -->
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div style="padding:0px 64px">
@@ -129,11 +129,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <p class="w3-text-grey">Co-wrote Labs 1-6 for the class and designed the experiments within them, available at <a href="https://ese112.seas.upenn.edu/labs/">https://ese112.seas.upenn.edu/labs/</a>. Videos for some of the experiments are available <a href="https://www.youtube.com/playlist?list=PLtWLgNN9UYBw9880xsLnbIqN6zOhxNcOj">here</a>. The labs were designed to introduce basic concepts in electromagnetics in an intuitive way--the class was a success in its first semester and many other departments in the engineering school are recommending the class to their students.</p>
     </div>
     <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right" style="font-size:192px"></i>
     </div>    
   </div>
 </div>
-
+</div>
 
 
 <!-- Footer -->
@@ -154,6 +154,15 @@ function myFunction() {
     } else { 
         x.className = x.className.replace(" w3-show", "");
     }
+}
+
+function openTab(projType) {
+    var i;
+    var x = document.getElementsByClassName("pcat");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    document.getElementById(projType).style.display = "block";  
 }
 </script>
 
